@@ -1,5 +1,6 @@
 plugins {
     id 'groovy'
+    id 'java'
 }
 
 group = 'org.example'
@@ -12,12 +13,15 @@ repositories {
 
 dependencies {
     implementation 'org.apache.groovy:groovy:5.0.0'
-    testImplementation platform('org.junit:junit-bom:6.0.0')
+    // BOM (Bill of Materials) do JUnit 5 - Garante que todas as partes do JUnit usem a mesma versão
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    // Agregador que traz a API e o Engine (Motor de execução)
     testImplementation 'org.junit.jupiter:junit-jupiter'
+    // Necessário para rodar testes dentro da IDE e via console
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 test {
-    // ESSENCIAL: Diz ao Gradle para usar o JUnit Platform (JUnit 5)
+    // ESSENCIAL: Diz ao Gradle para usar o JUnit Platform (JUnit 5), faz funcionar
     useJUnitPlatform()
 }
