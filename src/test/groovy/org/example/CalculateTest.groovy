@@ -12,7 +12,7 @@ class CalculateTest {
 	}
 	
 	// melhor que usar try catch
-//	@Test(expected = ArithmeticException.class)
+	// @Test(expected = ArithmeticException.class)
 	@Test
 	void dividTest() {
 		try {
