@@ -1,4 +1,5 @@
 package org.example
 
-class ICredito {
+interface ICredito {
+    double getLimite(String cpf);
 }

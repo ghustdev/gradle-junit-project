@@ -20,7 +20,7 @@ dependencies {
     // Necessário para rodar testes dentro da IDE e via console
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     // Importando Mockito
-    testImplementation 'org.mockito:mockito-core:5.11.0']
+    testImplementation 'org.mockito:mockito-core:5.11.0'
     // Se estiver usando JUnit 5 (Jupiter), essa extensão é recomendada
     testImplementation 'org.mockito:mockito-junit-jupiter:5.11.0'
 }
@@ -28,4 +28,6 @@ dependencies {
 test {
     // ESSENCIAL: Diz ao Gradle para usar o JUnit Platform (JUnit 5), faz funcionar
     useJUnitPlatform()
+    // Isso permite que o Mockito funcione em versões de Java que ele ainda não conhece oficialmente
+    systemProperty 'net.bytebuddy.experimental', 'true'
 }
