@@ -10,7 +10,7 @@ class VendaTest {
 	void checkout() {
 		def cliente = new Cliente("123", "Gustavo")
 		def creditoService = mock(ICredito.class)
-		// simula o FakeCreditoService, redefine o valor para 2500
+		// simula o FakeCreditoService, redefine o valor para 2500 FORÇADO
 		when(creditoService.getLimite(cliente.getCpf())).thenReturn(2500d)
 		def venda = new Venda(2000, cliente, creditoService)
 

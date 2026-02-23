@@ -14,10 +14,14 @@ class Venda {
     }
 
     boolean checkout() {
-        double limite
-        limite = creditoService.getLimite(cliente.getCpf())
-        if (valor > limite)
+        try {
+            double limite = creditoService.getLimite(cliente.getCpf())
+            if (valor > limite)
+                return false
+        }
+        catch (RuntimeException e) {
             return false
+        }
         return true
     }
 }
